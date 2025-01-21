@@ -128,7 +128,7 @@
     <!-- "Click to enter" section -->
     <div class="main" onclick="enterSite()">
         <div class="before">
-            <h1>##yuke</h1>
+            <h1>$yuke</h1>
         </div>
     </div>
 
@@ -174,13 +174,13 @@
             // Fade out the "Click to Enter" screen
             document.querySelector('.main').style.opacity = '0';
 
-            // Remove the blur from the body
-            document.body.style.filter = 'none';
+            // Add the 'show' class to reveal the content immediately
+            document.querySelector('.visible-content').classList.add('show');
 
-            // Add the 'show' class to reveal the content
+            // Remove the blur effect from body immediately after the "Click to Enter" fades out
             setTimeout(function() {
-                document.querySelector('.visible-content').classList.add('show');
-            }, 500); // Wait until "Click to Enter" fades out before showing the content
+                document.body.style.filter = 'none'; // Remove the blur effect after the fade
+            }, 500); // Matches the transition time of the "Click to Enter" screen
         }
     </script>
 </body>
