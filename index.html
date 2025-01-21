@@ -16,8 +16,7 @@
             flex-direction: column;
             min-height: 100vh;
             margin: 0;
-            filter: blur(8px); /* Apply blur initially */
-            transition: filter 0.3s ease; /* Smooth transition for unblur */
+            transition: background-color 1s ease; /* Smooth transition for background color change */
         }
 
         .logo {
@@ -95,6 +94,8 @@
             color: white;
             font-size: 40px;
             cursor: pointer;
+            z-index: 10; /* Ensure it's on top */
+            transition: opacity 1s ease-out; /* Smooth fade out transition */
         }
 
         .before h1 {
@@ -102,6 +103,24 @@
             text-align: center;
             margin: 0;
         }
+
+        /* Blurring everything except the "Click to enter" screen */
+        body > *:not(.main) {
+            filter: blur(8px); /* Apply blur to all elements except the .main div */
+            pointer-events: none; /* Prevent interaction with blurred content */
+            transition: filter 1s ease; /* Smooth blur transition */
+        }
+
+        /* Hidden content that appears after clicking */
+        .visible-content {
+            opacity: 0;
+            transition: opacity 1s ease; /* Smooth fade-in transition */
+        }
+
+        .visible-content.show {
+            opacity: 1;
+        }
+
     </style>
 </head>
 
@@ -113,18 +132,20 @@
         </div>
     </div>
 
-    <center>
-        <br><br><a href="https://t.me/thursdayxd"><img class="logo" src="logo.png"></a><br><br><br>
-        <a class="members">Greed</a><br>
-        <a class="members">Disgust</a><br>
-        <a class="members">Lust</a><br>
-        <a class="members">Sloth</a><br>
-        <a class="members">Gluttony</a><br>
-        <a class="members">Envy</a><br>
-        <a class="members">Pride</a><br>
-        <a class="members" href="https://discord.com/users/1266409724497367102">Yuke</a><br>
-    </center>
-    
+    <div class="visible-content">
+        <center>
+            <br><br><a href="https://t.me/thursdayxd"><img class="logo" src="logo.png"></a><br><br><br>
+            <a class="members">Greed</a><br>
+            <a class="members">Disgust</a><br>
+            <a class="members">Lust</a><br>
+            <a class="members">Sloth</a><br>
+            <a class="members">Gluttony</a><br>
+            <a class="members">Envy</a><br>
+            <a class="members">Pride</a><br>
+            <a class="members" href="https://discord.com/users/1266409724497367102">Yuke</a><br>
+        </center>
+    </div>
+
     <div id="container"></div>
     <div class="message"></div>
 
@@ -148,12 +169,18 @@
             setTimeout(PlayMusic, 3000);
         });
 
-        // Remove blur effect and redirect when the user clicks "Click to Enter"
+        // Remove blur effect, hide "Click to Enter" and show the full site
         function enterSite() {
-            document.body.style.filter = 'none'; // Remove blur
+            // Fade out the "Click to Enter" screen
+            document.querySelector('.main').style.opacity = '0';
+
+            // Remove the blur from the body
+            document.body.style.filter = 'none';
+
+            // Add the 'show' class to reveal the content
             setTimeout(function() {
-                window.location.href = 'https://thursday.lol'; // Replace with the actual link
-            }, 300); // Optional delay before redirect (e.g., 0.3s)
+                document.querySelector('.visible-content').classList.add('show');
+            }, 1000); // Wait until "Click to Enter" fades out before showing the content
         }
     </script>
 </body>
