@@ -7,72 +7,6 @@
     <title>yuke</title>
     <link rel="icon" href="logo.png" type="image/png" sizes="32x32">
     <style>
-        /* CSS for animations */
-        @charset "UTF-8";
-
-        .animated {
-            -webkit-animation-duration: 4s;
-            animation-duration: 4s;
-            -webkit-animation-fill-mode: both;
-            animation-fill-mode: both;
-        }
-
-        .animatedfast {
-            -webkit-animation-duration: 0.3s;
-            animation-duration: 0.3s;
-            -webkit-animation-fill-mode: both;
-            animation-fill-mode: both;
-        }
-
-        .animated.infinite {
-            -webkit-animation-iteration-count: infinite;
-            animation-iteration-count: infinite;
-        }
-
-        .animated.hinge {
-            -webkit-animation-duration: 2s;
-            animation-duration: 2s;
-        }
-
-        .animated.flipOutX,
-        .animated.flipOutY,
-        .animated.bounceIn,
-        .animated.bounceOut {
-            -webkit-animation-duration: .75s;
-            animation-duration: .75s;
-        }
-
-        @-webkit-keyframes swing {
-            50% {
-                -webkit-transform: rotate3d(0, 0, 1, -30deg); /* Increased rotation */
-                transform: rotate3d(0, 0, 1, -30deg); /* Increased rotation */
-            }
-
-            to {
-                -webkit-transform: rotate3d(0, 0, 1, 30deg); /* Increased rotation */
-                transform: rotate3d(0, 0, 1, 0deg); /* Increased rotation */
-            }
-        }
-
-        @keyframes swing {
-            50% {
-                -webkit-transform: rotate3d(0, 0, 1, -30deg); /* Increased rotation */
-                transform: rotate3d(0, 0, 1, -30deg); /* Increased rotation */
-            }
-
-            to {
-                -webkit-transform: rotate3d(0, 0, 1, 30deg); /* Increased rotation */
-                transform: rotate3d(0, 0, 1, 0deg); /* Increased rotation */
-            }
-        }
-
-        .swing {
-            -webkit-transform-origin: top center;
-            transform-origin: top center;
-            -webkit-animation-name: swing;
-            animation-name: swing;
-        }
-
         /* General page styles */
         body {
             background-color: black;
@@ -87,7 +21,6 @@
         .logo {
             height: 250px;
             width: 250px;
-            animation: swing 1s infinite;  /* Shortened animation duration to 1s */
         }
 
         .members {
