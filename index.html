@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>yuke</title>
-    <link rel="icon" href="yuke.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="logo.png" type="image/png" sizes="32x32">
     <style>
         /* General page styles */
         body {
@@ -16,6 +16,8 @@
             flex-direction: column;
             min-height: 100vh;
             margin: 0;
+            filter: blur(8px); /* Apply blur initially */
+            transition: filter 0.3s ease; /* Smooth transition for unblur */
         }
 
         .logo {
@@ -105,14 +107,14 @@
 
 <body>
     <!-- "Click to enter" section -->
-    <div class="main" onclick="window.location.href='https://www.your-website.com';">
+    <div class="main" onclick="enterSite()">
         <div class="before">
             <h1>Click to Enter</h1>
         </div>
     </div>
 
     <center>
-        <br><br><a href="https://t.me/thursdayxd"><img class="logo" src="yuke.png"></a><br><br><br>
+        <br><br><a href="https://t.me/thursdayxd"><img class="logo" src="logo.png"></a><br><br><br>
         <a class="members">Greed</a><br>
         <a class="members">Disgust</a><br>
         <a class="members">Lust</a><br>
@@ -144,7 +146,15 @@
         // Play music after 3 seconds of loading the page
         $(document).ready(function () {
             setTimeout(PlayMusic, 3000);
-        })
+        });
+
+        // Remove blur effect and redirect when the user clicks "Click to Enter"
+        function enterSite() {
+            document.body.style.filter = 'none'; // Remove blur
+            setTimeout(function() {
+                window.location.href = 'https://thursday.lol'; // Replace with the actual link
+            }, 300); // Optional delay before redirect (e.g., 0.3s)
+        }
     </script>
 </body>
 
