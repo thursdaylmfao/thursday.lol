@@ -16,7 +16,7 @@
             flex-direction: column;
             min-height: 100vh;
             margin: 0;
-            transition: background-color 1s ease; /* Smooth transition for background color change */
+            transition: background-color 0.5s ease; /* Short transition for background color */
         }
 
         .logo {
@@ -95,7 +95,7 @@
             font-size: 40px;
             cursor: pointer;
             z-index: 10; /* Ensure it's on top */
-            transition: opacity 1s ease-out; /* Smooth fade out transition */
+            transition: opacity 0.5s ease-out; /* Short fade-out transition */
         }
 
         .before h1 {
@@ -108,13 +108,13 @@
         body > *:not(.main) {
             filter: blur(8px); /* Apply blur to all elements except the .main div */
             pointer-events: none; /* Prevent interaction with blurred content */
-            transition: filter 1s ease; /* Smooth blur transition */
+            transition: filter 0.5s ease; /* Short blur transition */
         }
 
         /* Hidden content that appears after clicking */
         .visible-content {
             opacity: 0;
-            transition: opacity 1s ease; /* Smooth fade-in transition */
+            transition: opacity 0.5s ease; /* Short fade-in transition */
         }
 
         .visible-content.show {
@@ -128,7 +128,7 @@
     <!-- "Click to enter" section -->
     <div class="main" onclick="enterSite()">
         <div class="before">
-            <h1>Click to Enter</h1>
+            <h1>##yuke</h1>
         </div>
     </div>
 
@@ -180,7 +180,7 @@
             // Add the 'show' class to reveal the content
             setTimeout(function() {
                 document.querySelector('.visible-content').classList.add('show');
-            }, 1000); // Wait until "Click to Enter" fades out before showing the content
+            }, 500); // Wait until "Click to Enter" fades out before showing the content
         }
     </script>
 </body>
