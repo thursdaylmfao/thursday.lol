@@ -104,13 +104,6 @@
             margin: 0;
         }
 
-        /* Blurring everything except the "Click to enter" screen */
-        body > *:not(.main) {
-            filter: blur(8px); /* Apply blur to all elements except the .main div */
-            pointer-events: none; /* Prevent interaction with blurred content */
-            transition: filter 0.5s ease; /* Short blur transition */
-        }
-
         /* Hidden content that appears after clicking */
         .visible-content {
             opacity: 0;
@@ -128,7 +121,7 @@
     <!-- "Click to enter" section -->
     <div class="main" onclick="enterSite()">
         <div class="before">
-            <h1>$yuke</h1>
+            <h1>Click to Enter</h1>
         </div>
     </div>
 
@@ -169,18 +162,13 @@
             setTimeout(PlayMusic, 3000);
         });
 
-        // Remove blur effect, hide "Click to Enter" and show the full site
+        // Remove the "Click to Enter" screen and show the full site
         function enterSite() {
             // Fade out the "Click to Enter" screen
             document.querySelector('.main').style.opacity = '0';
 
             // Add the 'show' class to reveal the content immediately
             document.querySelector('.visible-content').classList.add('show');
-
-            // Remove the blur effect from body immediately after the "Click to Enter" fades out
-            setTimeout(function() {
-                document.body.style.filter = 'none'; // Remove the blur effect after the fade
-            }, 500); // Matches the transition time of the "Click to Enter" screen
         }
     </script>
 </body>
